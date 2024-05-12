@@ -2,8 +2,11 @@ import React from "react";
 import "./index.scss";
 import basket from "../../assets/basket.svg";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const baskets = useSelector((s) => s.basket.products);
+  console.log(baskets);
   return (
     <>
       <div className="container">
@@ -49,7 +52,7 @@ function Header() {
               <NavLink to={"/basket"}>
                 <img src={basket} alt="" />
               </NavLink>
-              <span>0</span>
+              <span>{baskets.length}</span>
             </div>
           </div>
         </div>

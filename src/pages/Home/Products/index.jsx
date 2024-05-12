@@ -1,12 +1,17 @@
 import React, { useEffect } from "react";
 import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getProduct } from "../../../redux/productSlice";
+import { getProduct } from "../../../redux/slices/productSlice";
 import axios from "axios";
+import { addToBasket } from "../../../redux/slices/basketSlice";
 
 function Products() {
   const dispatch = useDispatch();
   const data = useSelector((s) => s.data.data);
+
+  const handleAddToBasket = (product) => {
+    dispatch(addToBasket(product));
+  };
 
   async function getProducts() {
     try {
@@ -19,9 +24,11 @@ function Products() {
       console.error("Error fetching products:", error);
     }
   }
+
   useEffect(() => {
     getProducts();
   }, []);
+
   return (
     <div className="container">
       <div className="filter__btns">
@@ -48,7 +55,9 @@ function Products() {
                 </h3>
               </div>
               <div className="sale--blocks__big--btn">
-                <button>добавить в корзину</button>
+                <button onClick={() => handleAddToBasket(product)}>
+                  добавить в корзину
+                </button>
               </div>
             </div>
           </div>
