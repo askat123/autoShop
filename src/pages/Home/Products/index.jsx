@@ -24,6 +24,15 @@ function Products() {
   }, []);
   return (
     <div className="container">
+      <div className="filter__btns">
+        <button>Все</button>
+        <button>Антифризы</button>
+        <button>Каталог шин</button>
+        <button>Моторные масла</button>
+        <button>АКБ</button>
+        <button>Провода пусковые</button>
+        <button>Предохранители</button>
+      </div>
       <div className="sale--blocks">
         {data.map((product) => (
           <div key={product.id} className="sale--blocks__big">
