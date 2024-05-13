@@ -46,7 +46,7 @@ function Basket() {
             chat_id: "883636261",
             text: `Новый заказ:\n\n${basket.map(
               (product) =>
-                `Название: ${product.nameProduct}\nКоличество: ${product.quantity}\nЦена: ${product.price}\n\n`
+                `Название: ${product.productName}\nКоличество: ${product.quantity}\nЦена: ${product.price}\n\n`
             )}\nИмя заказчика: ${customerInfo.name}\nНомер телефона: ${
               customerInfo.phone
             }`,
@@ -117,7 +117,7 @@ function Basket() {
                   onClick={() => handleRemoveFromBasket(product)}
                   className="remove-button"
                 >
-                  Remove
+                  удалить
                 </button>
               </div>
             ))}
