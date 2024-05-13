@@ -40,7 +40,9 @@ function Header() {
         <div className="container">
           <div className="navbar">
             <div className="logo">
-              <h1>AutoPart</h1>
+              <NavLink to={"/"}>
+                <h1>AutoPart</h1>
+              </NavLink>
             </div>
             <div className="input">
               <input

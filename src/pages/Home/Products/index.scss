@@ -5,6 +5,7 @@
   gap: 25px;
   margin: 0 0 0 8%;
   padding: 50px 0;
+  font-family: sans-serif;
   &__big {
     width: 230px;
     height: 330px;
@@ -66,7 +67,7 @@
           font-size: 20px;
           font-weight: 500;
           color: white;
-          background: #0571af;
+          background: #031018;
           padding: 6px 15px;
           border-radius: 14px;
 
@@ -78,11 +79,11 @@
     }
     &--btn {
       button {
-        padding: 8px 13px;
+        padding: 7px 10px;
         border-radius: 8px;
         background: #fff;
-        border: 1px solid #0077ff;
-        color: #0d3ab4;
+        border: 1px solid #0f2035;
+        color: #050d24;
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;
@@ -90,6 +91,10 @@
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
           sans-serif;
         &:hover {
+          background: #073bac;
+          color: #fff;
+        }
+        &:focus {
           background: #073bac;
           color: #fff;
         }
@@ -109,7 +114,7 @@
     padding: 9px 20px;
     border: none;
     border-radius: 10px;
-    background: #0077ff;
+    background: #1a1e24;
     color: #fff;
     font-size: 20px;
     cursor: pointer;

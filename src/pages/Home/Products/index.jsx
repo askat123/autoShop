@@ -45,7 +45,7 @@ function Products() {
           <div key={product.id} className="sale--blocks__big">
             <img src={product.image} alt={product.title_product} />
             <div className="sale--blocks__big--one">
-              <h2></h2>
+              <h3>{product.productName}</h3>
             </div>
             <div className="sale--blocks__big--mini">
               <div className="sale--blocks__big--mini__text">
