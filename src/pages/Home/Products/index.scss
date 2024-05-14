@@ -7,7 +7,7 @@
   padding: 50px 0;
   font-family: sans-serif;
   &__big {
-    width: 230px;
+    width: 260px;
     height: 330px;
     display: flex;
     flex-direction: column;
@@ -67,7 +67,7 @@
           font-size: 20px;
           font-weight: 500;
           color: white;
-          background: #031018;
+          background: #c62828;
           padding: 6px 15px;
           border-radius: 14px;
 
@@ -82,8 +82,8 @@
         padding: 7px 10px;
         border-radius: 8px;
         background: #fff;
-        border: 1px solid #0f2035;
-        color: #050d24;
+        border: 1px solid #c62828;
+        color: #c62828;
         font-family: Inter;
         font-size: 14px;
         font-weight: 500;
@@ -91,11 +91,11 @@
         font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
           sans-serif;
         &:hover {
-          background: #073bac;
+          background: #c62828;
           color: #fff;
         }
         &:focus {
-          background: #073bac;
+          background: #c62828;
           color: #fff;
         }
       }
@@ -104,23 +104,28 @@
 }
 
 .filter__btns {
-  padding: 80px 0 0px 0;
+  padding: 10px 0 0px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  padding: 20px 0;
+  border-radius: 10px;
+  gap: 19px;
+  border: 2px solid rgba(128, 128, 128, 0.63);
   button {
     padding: 9px 20px;
     border: none;
     border-radius: 10px;
-    background: #1a1e24;
+    background: #c62828;
     color: #fff;
     font-size: 20px;
     cursor: pointer;
     transition: 0.4s;
     &:hover {
-      background: #0667d679;
+      background: #ebebeb79;
+      color: black;
+      border: 1px solid #c62828;
     }
   }
 }

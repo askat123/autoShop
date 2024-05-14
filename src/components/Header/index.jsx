@@ -3,6 +3,7 @@ import "./index.scss";
 import basket from "../../assets/basket.svg";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import logo from "../../assets/logoautodnr-removebg-preview.png";
 
 function Header() {
   const baskets = useSelector((s) => s.basket.products);
@@ -27,12 +28,20 @@ function Header() {
                   fill="#C62828"
                 />
               </svg>
+              <br />
               address
             </a>
-            <p>Время работы: 9:00-18:00</p>
+            <p>
+              Время работы: <br /> 9:00-18:00
+            </p>
           </div>
           <div className="phone">
-            <p>Номер телефона: +996 559 390505</p>
+            <p>
+              Номер телефона:{" "}
+              <a style={{ textDecoration: "none" }} href="tel:+996 559 390505">
+                +996 559 390505
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -41,7 +50,7 @@ function Header() {
           <div className="navbar">
             <div className="logo">
               <NavLink to={"/"}>
-                <h1>AutoPart</h1>
+                <img src={logo} alt="" />
               </NavLink>
             </div>
             <div className="input">
@@ -51,6 +60,19 @@ function Header() {
               />
             </div>
             <div className="buttons">
+              <a
+                style={{
+                  fontFamily: "sans-serif",
+                  fontSize: "17px",
+                  textDecoration: "none",
+                  color: "white",
+                  padding: "10px 30px 0 0",
+                  fontWeight: "700",
+                }}
+                href=""
+              >
+                новым клиентам
+              </a>
               <NavLink to={"/basket"}>
                 <img src={basket} alt="" />
               </NavLink>

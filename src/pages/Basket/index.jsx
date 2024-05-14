@@ -76,7 +76,7 @@ function Basket() {
             <div className="total-block">
               Total:{" сом"}
               <h1>
-                {basket.reduce((acc, el) => acc + el.price * el.quantity, 0)}
+                {basket.reduce((acc, el) => acc + +el.price * el.quantity, 0)}
               </h1>
             </div>
           </div>
@@ -116,6 +116,12 @@ function Basket() {
                 <button
                   onClick={() => handleRemoveFromBasket(product)}
                   className="remove-button"
+                  style={{
+                    padding: "6px 10px",
+                    background: "black",
+                    color: "white",
+                    borderRadius: "5px",
+                  }}
                 >
                   удалить
                 </button>
