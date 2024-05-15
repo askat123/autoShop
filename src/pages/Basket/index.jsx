@@ -8,6 +8,7 @@ import {
 } from "../../redux/slices/basketSlice";
 import Header from "../../components/Header";
 import axios from "axios";
+import Footer from "../../components/Footer";
 
 function Basket() {
   const basket = useSelector((state) => state.basket.products);
@@ -130,6 +131,7 @@ function Basket() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

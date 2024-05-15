@@ -53,26 +53,14 @@ function Header() {
                 <img src={logo} alt="" />
               </NavLink>
             </div>
-            <div className="input">
-              <input
-                type="text"
-                placeholder="Введите номер или название детали"
-              />
-            </div>
+            <nav>
+              <a>Контакты</a>
+              <a>Новым клиентам</a>
+              <a>Оптовым клиентам</a>
+              <a>Гарантии</a>
+            </nav>
+
             <div className="buttons">
-              <a
-                style={{
-                  fontFamily: "sans-serif",
-                  fontSize: "17px",
-                  textDecoration: "none",
-                  color: "white",
-                  padding: "10px 30px 0 0",
-                  fontWeight: "700",
-                }}
-                href=""
-              >
-                новым клиентам
-              </a>
               <NavLink to={"/basket"}>
                 <img src={basket} alt="" />
               </NavLink>

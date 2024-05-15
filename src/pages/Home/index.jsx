@@ -4,6 +4,7 @@ import "./index.scss";
 import Products from "./Products";
 import basketlogo from "../../assets/basket.svg";
 import { useSelector } from "react-redux";
+import Footer from "../../components/Footer";
 
 function Home() {
   const basket = useSelector((s) => s.basket.products);
@@ -20,6 +21,7 @@ function Home() {
         </div>
       </div>
       <Products />
+      <Footer />
     </>
   );
 }

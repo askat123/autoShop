@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../../../redux/slices/productSlice";
@@ -7,7 +7,9 @@ import { addToBasket } from "../../../redux/slices/basketSlice";
 
 function Products() {
   const dispatch = useDispatch();
-  const data = useSelector((s) => s.data.data);
+  const [filterType, setFilterType] = useState(null);
+  const [searchText, setSearchText] = useState("");
+  const data = useSelector((state) => state.data.data);
 
   const handleAddToBasket = (product) => {
     dispatch(addToBasket(product));
@@ -16,10 +18,9 @@ function Products() {
   async function getProducts() {
     try {
       const response = await axios.get(
-        `https://663f1cbbe3a7c3218a4c1c30.mockapi.io/products/sale`
+        `https://664459266c6a6565870a0015.mockapi.io/all`
       );
-      const data = response.data;
-      dispatch(getProduct(data));
+      dispatch(getProduct(response.data));
     } catch (error) {
       console.error("Error fetching products:", error);
     }
@@ -29,21 +30,52 @@ function Products() {
     getProducts();
   }, []);
 
+  const filteredData = data.filter((product) => {
+    // Фильтрация по типу продукта
+    if (filterType && product.productType !== filterType) {
+      return false;
+    }
+    // Поиск по названию продукта
+    if (
+      searchText &&
+      !product.productName.toLowerCase().includes(searchText.toLowerCase())
+    ) {
+      return false;
+    }
+    return true;
+  });
+
   return (
     <div className="container">
       <div className="filter__btns">
-        <button>Все</button>
-        <button>Антифризы</button>
-        <button>Каталог шин</button>
-        <button>Моторные масла</button>
-        <button>АКБ</button>
-        <button>Провода пусковые</button>
-        <button>Предохранители</button>
+        <button onClick={() => setFilterType(null)}>Все</button>
+        <button onClick={() => setFilterType("Антифризы")}>Антифризы</button>
+        <button onClick={() => setFilterType("Каталог шин")}>
+          Каталог шин
+        </button>
+        <button onClick={() => setFilterType("Моторные масла")}>
+          Моторные масла
+        </button>
+        <button onClick={() => setFilterType("АКБ")}>АКБ</button>
+        <button onClick={() => setFilterType("Провода пусковые")}>
+          Провода пусковые
+        </button>
+        <button onClick={() => setFilterType("Предохранители")}>
+          Предохранители
+        </button>
+      </div>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Поиск по названию..."
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
       </div>
       <div className="sale--blocks">
-        {data.map((product) => (
+        {filteredData.map((product) => (
           <div key={product.id} className="sale--blocks__big">
-            <img src={product.image} alt={product.title_product} />
+            <img src={product.image} alt={product.productName} />
             <div className="sale--blocks__big--one">
               <h3>{product.productName}</h3>
             </div>
@@ -51,7 +83,7 @@ function Products() {
               <div className="sale--blocks__big--mini__text">
                 <h3>
                   {product.price}
-                  <span>C</span>
+                  <span>с</span>
                 </h3>
               </div>
               <div className="sale--blocks__big--btn">

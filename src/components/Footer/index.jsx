@@ -1,7 +1,31 @@
 import React from "react";
+import logsf from "../../assets/inst.svg";
+import logo from "../../assets/logoautodnr-removebg-preview.png";
+import "./index.scss";
 
 function Footer() {
-  return <div>Footer</div>;
+  return (
+    <footer>
+      <div className="container">
+        <div className="footer">
+          <div className="footer_box">
+          <div className="footer_text">
+            <h3>Клиентам</h3>
+            <a href="">Vin запрос</a>
+            <a href="">Пользовательское соглашение</a>
+          </div>
+          <div className="footer_text">
+            <h3>О компании</h3>
+            <a href="">Контакты</a>
+            <a href="">О нас</a>
+          </div>
+          </div>
+          <img src={logsf} alt="" />
+          <img className="logo" src={logo} alt="" />
+        </div>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;
