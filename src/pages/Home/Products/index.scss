@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   gap: 25px;
   margin: 0 0 0 8%;
-  padding: 50px 0;
+  padding: 150px 0;
   font-family: sans-serif;
   &__big {
     width: 230px;
@@ -144,10 +144,16 @@
       flex-direction: column;
       gap: 15px;
       width: 250px;
-      height: 270px;
-      padding: 20px 0 4px 0;
+      // height: 30%;
+      padding: 30px 0 34px 0;
       border: 2px solid rgba(128, 128, 128, 0.397);
       border-radius: 10px;
+      p {
+        width: 90%;
+        font-size: 12px;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
       img {
         width: 40%;
         height: 40%;

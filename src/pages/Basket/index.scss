@@ -64,23 +64,32 @@
   border: none;
   border-radius: 10px;
   background: rgb(177, 19, 19);
+  cursor: pointer;
+}
+.order-button-rem {
+  padding: 14px 30px;
+  margin: 20px 20px;
+  color: darkred;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid red;
+  border-radius: 10px;
+  background: white;
 }
 .total-block {
   display: flex;
-  position: fixed;
-  right: 50px;
-  bottom: 50px;
-  align-items: center;
-  font-family: sans-serif;
+  flex-direction: column;
   font-weight: 600;
   border-radius: 10px;
   padding: 10px 30px;
   margin: 50px 0;
   gap: 10px;
-  width: 90px;
-  color: white;
+  width: 150px;
+  color: darkred;
   text-align: center;
-  background: rgba(160, 19, 19, 0.849);
+  border: 2px solid rgba(128, 128, 128, 0.363);
+  // background: rgba(160, 19, 19, 0.849);
 
   h1 {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",

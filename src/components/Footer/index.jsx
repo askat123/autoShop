@@ -11,7 +11,6 @@ function Footer() {
           <div className="footer_box">
             <div className="footer_text">
               <h3>Клиентам</h3>
-              <a href="">Vin запрос</a>
               <a href="">Пользовательское соглашение</a>
             </div>
             <div className="footer_text">
@@ -22,7 +21,6 @@ function Footer() {
               <a href="">О нас</a>
             </div>
           </div>
-          <img src={logsf} alt="" />
           <img className="logo" src={logo} alt="" />
         </div>
       </div>

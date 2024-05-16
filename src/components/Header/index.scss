@@ -10,6 +10,7 @@ header {
     display: flex;
     gap: 38px;
     font-size: 20px;
+    padding-right: 80px;
   }
   .navbar {
     display: flex;
@@ -52,6 +53,7 @@ header {
     }
     .buttons {
       display: flex;
+      align-items: center;
       a {
         background: transparent;
         border: none;

@@ -47,6 +47,7 @@ function PartDetail() {
                 <div className="part__block">
                   <img src={el.image} alt="" />
                   <h2>{el.name}</h2>
+                  <p>{el.description.slice(0, 65)}</p>
                   <h1>{el.price}</h1>
                   <button onClick={() => handleAddToBasket(el)}>
                     добавить в корзину

@@ -53,16 +53,14 @@ function Header() {
                 <img src={logo} alt="" />
               </NavLink>
             </div>
-            <nav>
-              <a href="https://api.whatsapp.com/send?phone=996500084707">
-                Контакты
-              </a>
-              <a>Новым клиентам</a>
-              <a>Оптовым клиентам</a>
-              <a>Гарантии</a>
-            </nav>
 
             <div className="buttons">
+              <nav>
+                <a href="https://api.whatsapp.com/send?phone=996500084707">
+                  Контакты
+                </a>
+                <NavLink to={"/category"}>Категории</NavLink>
+              </nav>
               <NavLink to={"/basket"}>
                 <img src={basket} alt="" />
               </NavLink>

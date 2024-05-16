@@ -5,14 +5,17 @@ import {
   removeFromBasket,
   decreaseQuantity,
   increaseQuantity,
+  clearBasket,
 } from "../../redux/slices/basketSlice";
-import Header from "../../components/Header";
+import { Modal, Input, Button } from "antd";
 import axios from "axios";
+import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 function Basket() {
   const basket = useSelector((state) => state.basket.products);
   const dispatch = useDispatch();
+  const [modalVisible, setModalVisible] = useState(false);
   const [customerInfo, setCustomerInfo] = useState({
     name: "",
     phone: "",
@@ -25,6 +28,9 @@ function Basket() {
       [name]: value,
     });
   };
+  function removeBasket() {
+    clearBasket();
+  }
 
   const handleDecreaseQuantity = (product) => {
     dispatch(decreaseQuantity(product));
@@ -38,19 +44,25 @@ function Basket() {
     dispatch(removeFromBasket(product));
   };
 
-  const handleOrder = async () => {
+  const handleOrder = () => {
+    setModalVisible(true);
+  };
+
+  const handleModalOk = async () => {
     try {
       if (customerInfo.name && customerInfo.phone) {
         const response = await axios.post(
           "https://api.telegram.org/bot6149981925:AAGpfDoRJkhemNLd2KfEYJGMYADcgZ_Dp5w/sendMessage",
           {
             chat_id: "883636261",
-            text: `Новый заказ:\n\n${basket.map(
-              (product) =>
-                `Название: ${product.name}\nКоличество: ${product.quantity}\nЦена: ${product.price}\n\n`
-            )}\nИмя заказчика: ${customerInfo.name}\nНомер телефона: ${
-              customerInfo.phone
-            }`,
+            text: `Новый заказ:\n\n${basket
+              .map(
+                (product) =>
+                  `Название: ${product.name}\nКоличество: ${product.quantity}\nЦена: ${product.price}\n\n`
+              )
+              .join("")}\nИмя заказчика: ${
+              customerInfo.name
+            }\nНомер телефона: ${customerInfo.phone}`,
           }
         );
         console.log("Order sent:", response.data);
@@ -60,6 +72,7 @@ function Basket() {
           phone: "",
         });
         alert("Заказ успешно отправлен!");
+        setModalVisible(false);
       } else {
         alert("Пожалуйста, заполните данные заказчика.");
       }
@@ -68,39 +81,25 @@ function Basket() {
     }
   };
 
+  const handleModalCancel = () => {
+    setModalVisible(false);
+  };
+
   return (
     <>
       <Header />
       <div id="basket">
         <div className="container">
-          <div className="total">
-            <div className="total-block">
-              Total:{" сом"}
-              <h1>
-                {basket.reduce((acc, el) => acc + +el.price * el.quantity, 0)}
-              </h1>
-            </div>
-          </div>
-          <div className="customer-info">
-            <input
-              type="text"
-              name="name"
-              placeholder="Ваше имя"
-              value={customerInfo.name}
-              onChange={handleInputChange}
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Ваш номер телефона"
-              value={customerInfo.phone}
-              onChange={handleInputChange}
-            />
-          </div>
-          <button onClick={handleOrder} className="order-button">
-            Заказать
-          </button>
           <div className="basket__box">
+            <div className="total">
+              <div className="total-block">
+                Итого к оплате:
+                <h1>
+                  {basket.reduce((acc, el) => acc + +el.price * el.quantity, 0)}
+                  {" сом"}
+                </h1>
+              </div>
+            </div>
             {basket.map((product) => (
               <div className="basket__block" key={product.id}>
                 <img src={product.image} alt="img" />
@@ -129,9 +128,40 @@ function Basket() {
               </div>
             ))}
           </div>
+          <button onClick={handleOrder} className="order-button">
+            Потдвердить заказ
+          </button>
+          <button
+            onClick={() => dispatch(clearBasket())}
+            className="order-button-rem"
+          >
+            - Очистить корзину{" "}
+          </button>
         </div>
       </div>
+
       <Footer />
+      <Modal
+        title="Пожалуйста, введите ваши данные"
+        visible={modalVisible}
+        onOk={handleModalOk}
+        onCancel={handleModalCancel}
+        okText="Оформить заказ"
+        cancelText="Отмена"
+      >
+        <Input
+          placeholder="Ваше имя"
+          name="name"
+          value={customerInfo.name}
+          onChange={handleInputChange}
+        />
+        <Input
+          placeholder="Ваш номер телефона"
+          name="phone"
+          value={customerInfo.phone}
+          onChange={handleInputChange}
+        />
+      </Modal>
     </>
   );
 }

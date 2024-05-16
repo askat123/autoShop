@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProduct } from "../../../redux/slices/productSlice";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 
 function Products() {
   const dispatch = useDispatch();
@@ -29,28 +31,30 @@ function Products() {
   }, []);
 
   return (
-    <div className="container">
-      <center>
-        <h1
-          style={{
-            fontFamily: "sans-serif",
-            fontSize: "28px",
-          }}
-        >
-          Категории
-        </h1>
-      </center>
-      <div className="sale--blocks">
-        {data.map((product) => (
-          <div
-            onClick={() => navigateToPartDetail(product.id)}
-            key={product.id}
-            className="sale--blocks__big"
+    <>
+      <Header />
+      <div className="container">
+        <center>
+          <h1
+            style={{
+              fontFamily: "sans-serif",
+              fontSize: "28px",
+            }}
           >
-            <div className="sale--blocks__big--one">
-              <h3>{product.name}</h3>
-            </div>
-            {/* <div className="sale--blocks__big--mini">
+            Категории
+          </h1>
+        </center>
+        <div className="sale--blocks">
+          {data.map((product) => (
+            <div
+              onClick={() => navigateToPartDetail(product.id)}
+              key={product.id}
+              className="sale--blocks__big"
+            >
+              <div className="sale--blocks__big--one">
+                <h3>{product.name}</h3>
+              </div>
+              {/* <div className="sale--blocks__big--mini">
               <div className="sale--blocks__big--mini__text">
                 <h3>
                   {product.price}
@@ -63,10 +67,11 @@ function Products() {
                 </button>
               </div>
             </div> */}
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
