@@ -54,7 +54,9 @@ function Header() {
               </NavLink>
             </div>
             <nav>
-              <a>Контакты</a>
+              <a href="https://api.whatsapp.com/send?phone=996500084707">
+                Контакты
+              </a>
               <a>Новым клиентам</a>
               <a>Оптовым клиентам</a>
               <a>Гарантии</a>

@@ -9,16 +9,18 @@ function Footer() {
       <div className="container">
         <div className="footer">
           <div className="footer_box">
-          <div className="footer_text">
-            <h3>Клиентам</h3>
-            <a href="">Vin запрос</a>
-            <a href="">Пользовательское соглашение</a>
-          </div>
-          <div className="footer_text">
-            <h3>О компании</h3>
-            <a href="">Контакты</a>
-            <a href="">О нас</a>
-          </div>
+            <div className="footer_text">
+              <h3>Клиентам</h3>
+              <a href="">Vin запрос</a>
+              <a href="">Пользовательское соглашение</a>
+            </div>
+            <div className="footer_text">
+              <h3>О компании</h3>
+              <a href="https://api.whatsapp.com/send?phone=996500084707">
+                Контакты
+              </a>
+              <a href="">О нас</a>
+            </div>
           </div>
           <img src={logsf} alt="" />
           <img className="logo" src={logo} alt="" />

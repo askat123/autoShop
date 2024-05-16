@@ -1,25 +1,6 @@
 #home {
   padding: 150px 0;
-  .fixed_basket {
-    width: 168px;
-    z-index: 88;
-    height: 55px;
-    background: rgba(128, 128, 128, 0.842);
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    border-radius: 5px;
-    position: fixed;
-    right: 50px;
-    bottom: 30px;
-    img {
-      width: 28%;
-    }
-    p {
-      color: aliceblue;
-      font-size: 20px;
-    }
-  }
+
   .home__content {
     height: 300px;
     background: url("../../assets/Picture\ →\ 6.png.jpg");

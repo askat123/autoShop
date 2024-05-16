@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Basket from "./pages/Basket";
+import PartDetail from "./pages/Home/Products/partDetail";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: "/basket",
     element: <Basket />,
+  },
+  {
+    path: "/partDetail/:id",
+    element: <PartDetail />,
   },
 ]);
 function App() {
