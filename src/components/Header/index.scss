@@ -143,8 +143,11 @@ header {
   .data {
     font-size: 11px;
   }
-  header a:nth-child(2) {
-    display: none;
+  header nav {
+    display: flex;
+    gap: 17px;
+    font-size: 20px;
+    padding-right: 20px;
   }
   header a {
     font-size: 15px;

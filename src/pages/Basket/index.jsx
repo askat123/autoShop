@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -84,6 +84,9 @@ function Basket() {
   const handleModalCancel = () => {
     setModalVisible(false);
   };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

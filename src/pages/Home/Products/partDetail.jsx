@@ -30,6 +30,7 @@ function PartDetail() {
       }
     };
     fetchPartDetail();
+    window.scrollTo(0, 0);
   }, [partId]);
 
   return (

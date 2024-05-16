@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Basket from "./pages/Basket";
 import PartDetail from "./pages/Home/Products/partDetail";
 import Products from "./pages/Home/Products";
+import { useEffect } from "react";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
+  
   return <RouterProvider router={router} />;
 }
 
