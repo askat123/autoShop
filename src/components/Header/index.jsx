@@ -38,8 +38,8 @@ function Header() {
           <div className="phone">
             <p>
               Номер телефона:{" "}
-              <a style={{ textDecoration: "none" }} href="tel:+996 559 390505">
-                +996 559 390505
+              <a style={{ textDecoration: "none" }} href="tel:+996500084707">
+                +996 500 084-707
               </a>
             </p>
           </div>

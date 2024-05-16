@@ -47,7 +47,7 @@ function Basket() {
             chat_id: "883636261",
             text: `Новый заказ:\n\n${basket.map(
               (product) =>
-                `Название: ${product.productName}\nКоличество: ${product.quantity}\nЦена: ${product.price}\n\n`
+                `Название: ${product.name}\nКоличество: ${product.quantity}\nЦена: ${product.price}\n\n`
             )}\nИмя заказчика: ${customerInfo.name}\nНомер телефона: ${
               customerInfo.phone
             }`,
@@ -104,7 +104,7 @@ function Basket() {
             {basket.map((product) => (
               <div className="basket__block" key={product.id}>
                 <img src={product.image} alt="img" />
-                <h2>{product.productName}</h2>
+                <h2>{product.name}</h2>
                 <div className="qua">
                   <button onClick={() => handleDecreaseQuantity(product)}>
                     -
@@ -131,7 +131,7 @@ function Basket() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
