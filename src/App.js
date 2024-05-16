@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <Basket />,
   },
   {
-    path: "/partDetail/:id",
+    path: "/partDetail/:partId",
     element: <PartDetail />,
   },
 ]);

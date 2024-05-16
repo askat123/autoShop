@@ -9,7 +9,7 @@ import { addToBasket } from "../../../redux/slices/basketSlice";
 import Footer from "../../../components/Footer";
 
 function PartDetail() {
-  const partId = useParams(); // Извлекаем значение параметра из URL
+  const { partId } = useParams(); // Извлекаем значение параметра из URL
   const [partDetail, setPartDetail] = useState(null);
   const basket = useSelector((s) => s.basket.products);
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function PartDetail() {
     const fetchPartDetail = async () => {
       try {
         const response = await axios.get(
-          `https://autoshop.pythonanywhere.com/spare/category/1`
+          `https://autoshop.pythonanywhere.com/spare/category/${partId}`
         );
         setPartDetail(response.data);
       } catch (error) {
