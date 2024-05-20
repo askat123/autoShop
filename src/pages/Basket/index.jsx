@@ -54,7 +54,7 @@ function Basket() {
         const response = await axios.post(
           "https://api.telegram.org/bot6149981925:AAGpfDoRJkhemNLd2KfEYJGMYADcgZ_Dp5w/sendMessage",
           {
-            chat_id: "883636261",
+            chat_id: "-4288695649",
             text: `Новый заказ:\n\n${basket
               .map(
                 (product) =>
